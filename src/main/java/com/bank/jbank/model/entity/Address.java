@@ -15,8 +15,8 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     Long cep;
-    String estado;
-    String cidade;
-    String rua;
-    Integer numero;
+    String state;
+    String city;
+    String avenue;
+    Integer number;
 }
