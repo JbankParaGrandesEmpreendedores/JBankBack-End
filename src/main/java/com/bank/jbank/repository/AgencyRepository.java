@@ -9,5 +9,9 @@ import org.springframework.stereotype.Repository;
 public interface AgencyRepository extends JpaRepository<Agency, Integer> {
     Agency toEntity(AgencyPostDTO agencyPostDTO);
 
-    AgencyPostDTO toEntity(Agency agency);
+    AgencyPostDTO toDTO(Agency agency);
+
+    Agency findAgencyByNumber(Integer number);
+
+    void deleteByNumber(Integer number);
 }
