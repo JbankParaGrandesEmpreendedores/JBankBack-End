@@ -4,6 +4,6 @@ import com.bank.jbank.model.entity.Address;
 
 public record AgencyPostDTO(
         String name,
-        Address address
+        AddressPostDTO addressPostDTO
 ) {
 }
