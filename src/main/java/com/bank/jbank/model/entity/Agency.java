@@ -13,7 +13,7 @@ public class Agency {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    String name;
+    Integer number;
     @ManyToOne
     @JoinColumn(name = "address_id")
     Address address;
