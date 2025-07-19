@@ -1,9 +1,6 @@
 package com.bank.jbank.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,5 +14,7 @@ public class Agency {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     String name;
+    @ManyToOne
+    @JoinColumn(name = "address_id")
     Address address;
 }
