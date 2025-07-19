@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AgencyRepository extends JpaRepository<Integer, Agency> {
+public interface AgencyRepository extends JpaRepository<Agency, Integer> {
 
 }
