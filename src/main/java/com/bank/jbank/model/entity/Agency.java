@@ -13,6 +13,6 @@ public class Agency {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    String nome;
-    Endereco endereco;
+    String name;
+    Address address;
 }
