@@ -12,9 +12,9 @@ public class Agency {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-    Integer number;
+    private Integer id;
+    private String name;
     @ManyToOne
     @JoinColumn(name = "address_id")
-    Address address;
+    private Address address;
 }
