@@ -6,6 +6,6 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface PersonPostMapping {
-    Person toDTO(PersonPostDTO dto);
-    PersonPostDTO toEntity(Person person);
+    Person toEntity(PersonPostDTO dto);
+     PersonPostDTO toDTO(Person person);
 }
