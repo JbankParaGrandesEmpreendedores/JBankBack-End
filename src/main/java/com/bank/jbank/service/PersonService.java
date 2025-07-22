@@ -29,6 +29,11 @@ public class PersonService {
         return repository.findAll();
     }
 
+    public Person update(PersonPostDTO dto){
+        Person person = mapping.toEntity(dto);
+        return repository.save(person);
+    }
+
     public void delete(Integer id){
         repository.deleteById(id);
     }
