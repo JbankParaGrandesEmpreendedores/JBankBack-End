@@ -5,9 +5,12 @@ import com.bank.jbank.model.entity.Person;
 import com.bank.jbank.model.mapper.Person.PersonPostMapping;
 import com.bank.jbank.repository.PersonRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -25,12 +28,17 @@ public class PersonService {
         return repository.getById(id);
     }
 
-    public List<Person> getAll(){
-        return repository.findAll();
+    public Page<Person> getAll(Pageable pageable){
+        return repository.findAll(pageable);
     }
 
-    public Person update(PersonPostDTO dto){
-        Person person = mapping.toEntity(dto);
+    public Person update(Integer id, PersonPostDTO dto){
+        Optional<Person> optionalPerson = repository.findById(id);
+        Person person = optionalPerson.get();
+        person.setName(dto.name());
+        person.setEmail(dto.email());
+        person.setAddress(dto.address());
+        person.setTelefone(dto.telephone());
         return repository.save(person);
     }
 
