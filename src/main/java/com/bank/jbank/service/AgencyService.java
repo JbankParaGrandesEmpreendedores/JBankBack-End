@@ -1,18 +1,15 @@
 package com.bank.jbank.service;
 
 import com.bank.jbank.model.dto.agency.AgencyPostDTO;
-import com.bank.jbank.model.entity.Address;
 import com.bank.jbank.model.entity.Agency;
-import com.bank.jbank.model.mapper.agency.AgencyPostMapping;
+import com.bank.jbank.service.mapper.agency.AgencyPostMapping;
 import com.bank.jbank.repository.AddressRepository;
 import com.bank.jbank.repository.AgencyRepository;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -35,9 +32,10 @@ public class AgencyService {
     }
 
     public Agency updateAgency(Integer id, AgencyPostDTO agencyPostDTO){
-        Agency entity = agencyPostMapping.toEntity(agencyPostDTO);
-        entity.setId(id);
-        return repository.save(entity);
+        Agency existingAgency = repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Not found"));
+        agencyPostMapping.updateEntity(agencyPostDTO,existingAgency);
+        return repository.save(existingAgency);
     }
 
     public void deleteAgency(Integer id){
