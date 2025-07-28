@@ -1,4 +1,4 @@
-package com.bank.jbank.model.mapper.address;
+package com.bank.jbank.service.mapper.address;
 
 import com.bank.jbank.model.dto.address.AddressPostDTO;
 import com.bank.jbank.model.entity.Address;

@@ -2,7 +2,7 @@ package com.bank.jbank.service;
 
 import com.bank.jbank.model.dto.person.PersonPostDTO;
 import com.bank.jbank.model.entity.Person;
-import com.bank.jbank.model.mapper.Person.PersonPostMapping;
+import com.bank.jbank.service.mapper.Person.PersonPostMapping;
 import com.bank.jbank.repository.PersonRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

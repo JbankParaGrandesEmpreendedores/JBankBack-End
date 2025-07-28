@@ -1,4 +1,4 @@
-package com.bank.jbank.model.mapper.Person;
+package com.bank.jbank.service.mapper.Person;
 
 import com.bank.jbank.model.dto.person.PersonPostDTO;
 import com.bank.jbank.model.entity.Person;
