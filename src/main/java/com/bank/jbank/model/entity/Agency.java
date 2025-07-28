@@ -14,6 +14,7 @@ public class Agency {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    private Integer number;
     @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "address_id")
     private Address address;
