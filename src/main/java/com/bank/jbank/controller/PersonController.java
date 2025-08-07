@@ -26,6 +26,11 @@ public class PersonController {
         return ResponseEntity.ok(service.getAll(pageable));
     }
 
+    @PostMapping()
+    public ResponseEntity<Person> create(@RequestBody PersonPostDTO dto){
+        return ResponseEntity.ok(service.create(dto));
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<?> updatePerson(@PathVariable Integer id, @RequestBody PersonPostDTO dto){
         return ResponseEntity.ok(service.update(id, dto));
