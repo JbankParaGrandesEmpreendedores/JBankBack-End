@@ -2,7 +2,6 @@ package com.bank.jbank.controller;
 
 import com.bank.jbank.model.dto.person.PersonPostDTO;
 import com.bank.jbank.model.entity.Person;
-import com.bank.jbank.model.mapper.Person.PersonPostMapping;
 import com.bank.jbank.service.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/person")
 public class PersonController {
 
-    private PersonPostMapping mapping;
     private PersonService service;
 
     @GetMapping("/{id}")
