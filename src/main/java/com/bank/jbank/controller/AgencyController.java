@@ -18,7 +18,7 @@ public class AgencyController {
     private AgencyService service;
 
     @PostMapping
-    public ResponseEntity<Agency> createAgency(@RequestParam AgencyPostDTO agencyPostDTO){
+    public ResponseEntity<Agency> createAgency(@RequestBody AgencyPostDTO agencyPostDTO){
         return ResponseEntity.ok(service.createAgency(agencyPostDTO));
     }
 
@@ -33,7 +33,7 @@ public class AgencyController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Agency> updateAgency(@PathVariable Integer id, @RequestParam AgencyPostDTO agencyPostDTO){
+    public ResponseEntity<Agency> updateAgency(@PathVariable Integer id, @RequestBody AgencyPostDTO agencyPostDTO){
         return ResponseEntity.ok(service.updateAgency(id, agencyPostDTO));
     }
 
