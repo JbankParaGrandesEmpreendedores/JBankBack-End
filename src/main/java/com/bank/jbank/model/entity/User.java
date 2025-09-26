@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -20,4 +22,10 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "person_id")
     private Person person;
+
+    @OneToMany(mappedBy = "sender")
+    private List<Transaction> sentTransactions;
+    @OneToMany(mappedBy = "receiver")
+    private List<Transaction> receivedTransaction;
+
 }
