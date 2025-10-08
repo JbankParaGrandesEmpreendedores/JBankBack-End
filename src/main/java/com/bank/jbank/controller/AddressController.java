@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("Address")
+@RequestMapping("/address")
 @AllArgsConstructor
 public class AddressController {
     private AddressService service;
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Address> getAddress(@PathVariable Integer id){
         return ResponseEntity.ok(service.getAddress(id));
     }

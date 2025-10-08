@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("Agency")
+@RequestMapping("/agency")
 @AllArgsConstructor
 public class AgencyController {
     private AgencyService service;
@@ -22,7 +22,7 @@ public class AgencyController {
         return ResponseEntity.ok(service.createAgency(agencyPostDTO));
     }
 
-    @GetMapping("{number}")
+    @GetMapping("/{number}")
     public ResponseEntity<Agency> getAgency(@PathVariable Integer number){
         return ResponseEntity.ok(service.getAgency(number));
     }
@@ -32,12 +32,12 @@ public class AgencyController {
         return ResponseEntity.ok(service.getAllAgencies(pageable));
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Agency> updateAgency(@PathVariable Integer id, @RequestBody AgencyPostDTO agencyPostDTO){
         return ResponseEntity.ok(service.updateAgency(id, agencyPostDTO));
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void deleteAgency(@PathVariable Integer id){
         service.deleteAgency(id);
     }

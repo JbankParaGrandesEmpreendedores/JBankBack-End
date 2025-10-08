@@ -9,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("transaction")
+@RequestMapping("/transaction")
 @AllArgsConstructor
 public class TransactionController {
     private TransactionService service;

@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("User")
+@RequestMapping("/user")
 @AllArgsConstructor
 public class UserController {
     private UserService service;
@@ -20,7 +20,7 @@ public class UserController {
         return ResponseEntity.ok(service.create(userPostDTO));
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<User> findById(@PathVariable Integer id){
         return ResponseEntity.ok(service.findById(id));
     }
@@ -30,12 +30,12 @@ public class UserController {
         return ResponseEntity.ok(service.findAll(pageable));
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<User> update(@PathVariable Integer id, @RequestBody UserPostDTO userPostDTO){
         return ResponseEntity.ok(service.put(id,userPostDTO));
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id){
         service.delete(id);
     }
